@@ -1,0 +1,3 @@
+/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/build/CMakeFiles/opengl.dir
+/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/build/CMakeFiles/edit_cache.dir
+/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/build/CMakeFiles/rebuild_cache.dir

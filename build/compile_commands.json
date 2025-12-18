@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/build",
+  "command": "/usr/bin/c++  -I/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src -I/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/dependencies/GLAD/include -I/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/dependencies/GLFW/include -std=gnu++20 -o CMakeFiles/opengl.dir/src/main.cpp.o -c /home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/main.cpp",
+  "file": "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/main.cpp",
+  "output": "CMakeFiles/opengl.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/build",
+  "command": "/usr/bin/cc  -I/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src -I/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/dependencies/GLAD/include -I/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/dependencies/GLFW/include  -o CMakeFiles/opengl.dir/src/glad.c.o -c /home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/glad.c",
+  "file": "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/glad.c",
+  "output": "CMakeFiles/opengl.dir/src/glad.c.o"
+}
+]
