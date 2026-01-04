@@ -3,6 +3,7 @@ opengl: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
   CMakeFiles/opengl.dir/src/main.cpp.o \
+  CMakeFiles/opengl.dir/src/texture_handler.cpp.o \
   CMakeFiles/opengl.dir/src/glad.c.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libglfw.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a \
@@ -53,6 +54,8 @@ opengl: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
 CMakeFiles/opengl.dir/src/main.cpp.o:
+
+CMakeFiles/opengl.dir/src/texture_handler.cpp.o:
 
 CMakeFiles/opengl.dir/src/glad.c.o:
 

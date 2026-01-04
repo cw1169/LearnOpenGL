@@ -177,6 +177,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl.dir/build.make CMakeFiles/opengl.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/texture_handler.o: src/texture_handler.cpp.o
+.PHONY : src/texture_handler.o
+
+# target to build an object file
+src/texture_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl.dir/build.make CMakeFiles/opengl.dir/src/texture_handler.cpp.o
+.PHONY : src/texture_handler.cpp.o
+
+src/texture_handler.i: src/texture_handler.cpp.i
+.PHONY : src/texture_handler.i
+
+# target to preprocess a source file
+src/texture_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl.dir/build.make CMakeFiles/opengl.dir/src/texture_handler.cpp.i
+.PHONY : src/texture_handler.cpp.i
+
+src/texture_handler.s: src/texture_handler.cpp.s
+.PHONY : src/texture_handler.s
+
+# target to generate assembly for a file
+src/texture_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/opengl.dir/build.make CMakeFiles/opengl.dir/src/texture_handler.cpp.s
+.PHONY : src/texture_handler.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/texture_handler.o"
+	@echo "... src/texture_handler.i"
+	@echo "... src/texture_handler.s"
 .PHONY : help
 
 

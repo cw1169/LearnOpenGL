@@ -16,8 +16,10 @@ pkg_check_modules(GLFW REQUIRED glfw3)
 
 # Sources
 set(SOURCES
-    src/main.cpp
-    src/glad.c
+  src/main.cpp
+  src/texture_handler.cpp
+
+  src/glad.c
 )
 
 # Include directories

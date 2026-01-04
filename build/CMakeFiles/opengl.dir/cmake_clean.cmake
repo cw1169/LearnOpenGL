@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/opengl.dir/src/glad.c.o.d"
   "CMakeFiles/opengl.dir/src/main.cpp.o"
   "CMakeFiles/opengl.dir/src/main.cpp.o.d"
+  "CMakeFiles/opengl.dir/src/texture_handler.cpp.o"
+  "CMakeFiles/opengl.dir/src/texture_handler.cpp.o.d"
   "opengl"
   "opengl.pdb"
 )

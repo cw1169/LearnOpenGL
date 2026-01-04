@@ -1,10 +1,11 @@
 #include "shader.h"
 #include <glad/glad.h>
 #include <glfw/glfw3.h>
-#include <iostream>
-
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#include "texture_handler.hpp"
+
+#include <iostream>
 
 // Callback function to adjust the viewport when the window is resized
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
@@ -36,7 +37,7 @@ int main() {
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
   // Create a GLFW window -------------------
-  GLFWwindow *window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(1920, 1080, "LearnOpenGL", NULL, NULL);
   if (window == NULL) {
     std::cout << "Failed to create GLFW window" << std::endl;
     glfwTerminate();
@@ -52,48 +53,18 @@ int main() {
   }
 
   // tell GLFW the size of the viewport
-  glViewport(0, 0, 800, 600);
+  glViewport(0, 0, 1920, 1080);
 
   // window resize callback
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   // Build Shader ----------------
-  Shader shader("Shaders/vertex_shader.glsl", "Shaders/fragment_shader.glsl");
+  Shader shader("../Shaders/vertex_shader.glsl",
+                "../Shaders/fragment_shader.glsl");
 
   // Textures ------------------
-
-  // generate a texture ID and bind it to the GL_TEXTURE_2D target
-  unsigned int texture;
-  glGenTextures(1, &texture);
-  glBindTexture(GL_TEXTURE_2D, texture);
-
-  // Handles texture wrapping if needed
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
-
-  // Texture Filtering
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
-                  GL_LINEAR_MIPMAP_LINEAR); // uses linear filtering for
-                                            // minification between mipmaps
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
-                  GL_LINEAR); // use linear filtering for magnification
-
-  // loading texture using stb_image
-  int width, height, nrChannels;
-  unsigned char *data =
-      stbi_load("container.jpg", &width, &height, &nrChannels, 0);
-
-  // generate texture
-  if (data) {
-    glTexImage2D(
-        GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE,
-        data); // (texture target, mipmap layer, storage format, width, height,
-               // legacy stuff, source format, source datatype, image data)
-    glGenerateMipmap(GL_TEXTURE_2D); // generate mipmaps
-  } else {
-    std::cout << "Failed to load texture" << std::endl;
-  }
-  stbi_image_free(data); // free the image data after generating the texture
+  unsigned int container_texture = load2DTexture("../textures/container.jpg");
+  unsigned int awesome_texture = load2DTexture("../textures/awesomeface.png");
 
   // Vertex Attributes -------------
   // Steps
@@ -141,6 +112,8 @@ int main() {
                         (void *)(6 * sizeof(float)));
   glEnableVertexAttribArray(2);
 
+  shader.setInt("texture1", container_texture);
+  shader.setInt("texture2", awesome_texture);
   // render loop (double buffer)
   while (!glfwWindowShouldClose(window)) {
     processInput(
@@ -153,14 +126,16 @@ int main() {
     glClear(GL_COLOR_BUFFER_BIT); // clear the color buffer (set the background
                                   // color)
 
-    shader.use(); // use the shader program
+    shader.use();
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, container_texture);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, awesome_texture);
 
     // bind the VAO and draw the triangle
     glBindVertexArray(VAO);
-    // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); // draw the triangle
     // using the EBO and the indices
-    glDrawArrays(GL_TRIANGLES, 0,
-                 3);      // draw the triangle using the VBO and the vertices
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); // draw the triangle
     glBindVertexArray(0); // unbind the VAO (optional, but good practice)
     glfwPollEvents(); // check for events (like key presses, mouse movements,
                       // etc.)

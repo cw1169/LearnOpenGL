@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/glad.c" "CMakeFiles/opengl.dir/src/glad.c.o" "gcc" "CMakeFiles/opengl.dir/src/glad.c.o.d"
   "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/main.cpp" "CMakeFiles/opengl.dir/src/main.cpp.o" "gcc" "CMakeFiles/opengl.dir/src/main.cpp.o.d"
+  "/home/winderscharlie/GameDev/Projects/OpenGL/LearnOpenGL/src/texture_handler.cpp" "CMakeFiles/opengl.dir/src/texture_handler.cpp.o" "gcc" "CMakeFiles/opengl.dir/src/texture_handler.cpp.o.d"
   "" "opengl" "gcc" "CMakeFiles/opengl.dir/link.d"
   )
 
